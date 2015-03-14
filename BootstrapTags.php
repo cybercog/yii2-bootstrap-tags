@@ -36,6 +36,10 @@ class BootstrapTags extends \yii\widgets\InputWidget
     {
         parent::init();
 
+        if(!$this->getId(false) and $this->hasModel()) {
+            $this->id = $this->options['id'];
+        }
+
         $this->options['class'] = isset($this->options['class'])
             ? $this->options['class'] . ' bootstrap-tags'
             : 'bootstrap-tags'
